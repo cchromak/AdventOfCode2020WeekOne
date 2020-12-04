@@ -51,6 +51,54 @@ public class Main {
         System.out.println("Valid pw at exactly one index: " + check.passwordCheckAtIndex(passwordList));
         System.out.println("===========================");
 
+//        day3
+
+        List<char[]> hillList = new LinkedList<>();
+        try {
+            File myObj = new File("TreeHill.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                hillList.add(data.toCharArray());
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+        TreeHill oneDownThreeRight = new TreeHill();
+        System.out.println("==== Day 3 ==== Week 1 ====");
+        System.out.println("Tree hit 1 slope count: " + oneDownThreeRight.oneDownThreeRightTreeCount(hillList));
+        System.out.println("Tree hit 5 slopes product count: " + oneDownThreeRight.productOfAllSlopes(hillList));
+        System.out.println("===========================");
+
+
+        List<String> passportsList = new LinkedList<>();
+        try {
+            File myObj = new File("passports.txt");
+            Scanner myReader = new Scanner(myObj);
+            String dataCompleted = new String();
+            while (myReader.hasNextLine()) {
+              String data = myReader.nextLine();
+              if (data.length() != 0) {
+                  dataCompleted += " " + data;
+              } else {
+                  passportsList.add(dataCompleted.trim());
+                  dataCompleted = "";
+              }
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+        PassportCheck passportCheck = new PassportCheck();
+        System.out.println("==== Day 4 ==== Week 1 ====");
+        System.out.println("Easy Passport Check Valid Count: " + passportCheck.passportCheckMissingCidOk(passportsList));
+        System.out.println("Hard Passport Check Valid Count: " + passportCheck.passportCheck(passportsList));
+        System.out.println("===========================");
     }
 
 }
