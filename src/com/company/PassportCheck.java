@@ -48,7 +48,7 @@ public class PassportCheck {
             if (passport.containsKey("eyr")) eyr = Integer.parseInt(passport.get("eyr"));
             if (passport.containsKey("hcl")) hcl = passport.get("hcl").charAt(0) == '#' && passport.get("hcl").length() == 7 && passport.get("hcl").matches("^[a-f0-9#]*$");
             if (passport.containsKey("ecl")) ecl = Arrays.asList(eyeColorArray).contains(passport.get("ecl"));
-            if (passport.containsKey("pid")) pid = passport.get("pid").length() == 9;
+            if (passport.containsKey("pid")) pid = passport.get("pid").matches("^[0-9]*$") && passport.get("pid").length() == 9;
             if (passport.containsKey("hgt")) height = passport.get("hgt");
             if (height.length() > 3) {
                 hgtMeasure = height.substring(height.length() - 2);

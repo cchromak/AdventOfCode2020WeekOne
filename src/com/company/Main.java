@@ -99,6 +99,28 @@ public class Main {
         System.out.println("Easy Passport Check Valid Count: " + passportCheck.passportCheckMissingCidOk(passportsList));
         System.out.println("Hard Passport Check Valid Count: " + passportCheck.passportCheck(passportsList));
         System.out.println("===========================");
+
+//        Day 5
+        List<String> planeSeatList = new LinkedList<>();
+        try {
+            File myObj = new File("planeseats.txt");
+            Scanner myReader = new Scanner(myObj);
+
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                planeSeatList.add(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+        PlaneSeat planeSeat = new PlaneSeat();
+        System.out.println("==== Day 5 ==== Week 1 ====");
+        System.out.println("The largest seat ID: " + planeSeat.planeSeatHighestId(planeSeatList));
+        System.out.println("Your seat ID: " + planeSeat.findYourSeat(planeSeatList));
+        System.out.println("===========================");
     }
 
 }
