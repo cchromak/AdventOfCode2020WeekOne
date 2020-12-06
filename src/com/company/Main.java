@@ -82,7 +82,7 @@ public class Main {
             while (myReader.hasNextLine()) {
               String data = myReader.nextLine();
               if (data.length() != 0) {
-                  dataCompleted += data;
+                  dataCompleted += " " + data;
               } else {
                   passportsList.add(dataCompleted.trim());
                   dataCompleted = "";
@@ -94,11 +94,11 @@ public class Main {
             e.printStackTrace();
         }
 
-//        PassportCheck passportCheck = new PassportCheck();
-//        System.out.println("==== Day 4 ==== Week 1 ====");
-//        System.out.println("Easy Passport Check Valid Count: " + passportCheck.passportCheckMissingCidOk(passportsList));
-//        System.out.println("Hard Passport Check Valid Count: " + passportCheck.passportCheck(passportsList));
-//        System.out.println("===========================");
+        PassportCheck passportCheck = new PassportCheck();
+        System.out.println("==== Day 4 ==== Week 1 ====");
+        System.out.println("Easy Passport Check Valid Count: " + passportCheck.passportCheckMissingCidOk(passportsList));
+        System.out.println("Hard Passport Check Valid Count: " + passportCheck.passportCheck(passportsList));
+        System.out.println("===========================");
 
 //        Day 5
         List<String> planeSeatList = new LinkedList<>();
