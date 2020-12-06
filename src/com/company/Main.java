@@ -82,7 +82,7 @@ public class Main {
             while (myReader.hasNextLine()) {
               String data = myReader.nextLine();
               if (data.length() != 0) {
-                  dataCompleted += " " + data;
+                  dataCompleted += data;
               } else {
                   passportsList.add(dataCompleted.trim());
                   dataCompleted = "";
@@ -94,11 +94,11 @@ public class Main {
             e.printStackTrace();
         }
 
-        PassportCheck passportCheck = new PassportCheck();
-        System.out.println("==== Day 4 ==== Week 1 ====");
-        System.out.println("Easy Passport Check Valid Count: " + passportCheck.passportCheckMissingCidOk(passportsList));
-        System.out.println("Hard Passport Check Valid Count: " + passportCheck.passportCheck(passportsList));
-        System.out.println("===========================");
+//        PassportCheck passportCheck = new PassportCheck();
+//        System.out.println("==== Day 4 ==== Week 1 ====");
+//        System.out.println("Easy Passport Check Valid Count: " + passportCheck.passportCheckMissingCidOk(passportsList));
+//        System.out.println("Hard Passport Check Valid Count: " + passportCheck.passportCheck(passportsList));
+//        System.out.println("===========================");
 
 //        Day 5
         List<String> planeSeatList = new LinkedList<>();
@@ -121,7 +121,43 @@ public class Main {
         System.out.println("The largest seat ID: " + planeSeat.planeSeatHighestId(planeSeatList));
         System.out.println("Your seat ID: " + planeSeat.findYourSeat(planeSeatList));
         System.out.println("===========================");
+
+//        Day 6
+        List<String> answerList = new LinkedList<>();
+        try {
+            File myObj = new File("answer.txt");
+            Scanner myReader = new Scanner(myObj);
+            String dataCompleted = new String();
+            int count = 0;
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                if (data.length() != 0) {
+                    count++;
+                    dataCompleted += data;
+                } else {
+                    dataCompleted.trim();
+                    dataCompleted += Integer.toString(count);
+                    answerList.add(dataCompleted);
+                    dataCompleted = "";
+                    count = 0;
+                }
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+        Questionnaire question = new Questionnaire();
+        System.out.println("==== Day 6 ==== Week 1 ====");
+        System.out.println("Number of yes' per group: " + question.totalYes(answerList));
+        System.out.println("Number of group yes: " + question.groupYes(answerList));
+        System.out.println("===========================");
+
+
     }
+
+
 
 }
 
